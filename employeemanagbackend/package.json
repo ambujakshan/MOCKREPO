@@ -1,0 +1,19 @@
+{
+  "name": "employeemanagbackend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "employeemanagbackend": "file:",
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0"
+  }
+}
