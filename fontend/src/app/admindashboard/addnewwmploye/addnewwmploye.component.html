@@ -1,0 +1,71 @@
+<form [formGroup]="registerForm" >
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+    <label for="name" ><b>Name</b></label>
+    
+    <input type="text" class="form-control" [ngClass]="{'is-valid': registerForm.get('name')?.valid, 'is-invalid': registerForm.get('name')?.invalid && registerForm.get('name')?.touched}" formControlName="name"  ng><span *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+  
+        <span class="invalid-feedback" *ngIf="registerForm.get('name')?.hasError('required')">Name is required</span>
+        <span class="invalid-feedback" *ngIf="registerForm.get('name')?.hasError('minlength')">Atleast 4 characters</span>
+  
+    </span>
+ </div>
+
+    <div class="col-md-4 mb-3">
+  <label for="department" ><b>Department</b></label>
+ 
+
+  <input type="text" class="form-control" [ngClass]="{'is-valid': registerForm.get('department')?.valid, 'is-invalid': registerForm.get('department')?.invalid && registerForm.get('department')?.touched}"  formControlName="department"  ng><span *ngIf="registerForm.get('department')?.invalid && registerForm.get('department')?.touched">
+
+      <span class="invalid-feedback" *ngIf="registerForm.get('department')?.hasError('required')">Account is required</span>
+      <span class="invalid-feedback"  *ngIf="registerForm.get('department')?.hasError('minlength')">Atleast 3 characters</span>
+
+  </span>
+ </div>
+
+ <div class="col-md-4 mb-3">
+    <label for="age" ><b>Age</b></label>
+   
+  
+    <input type="text" class="form-control" [ngClass]="{'is-valid': registerForm.get('age')?.valid, 'is-invalid': registerForm.get('age')?.invalid && registerForm.get('age')?.touched}"  formControlName="age"  ng><span *ngIf="registerForm.get('age')?.invalid && registerForm.get('age')?.touched">
+  
+        <span class="invalid-feedback" *ngIf="registerForm.get('age')?.hasError('required')">Age is required</span>
+        <span class="invalid-feedback"  *ngIf="registerForm.get('age')?.hasError('min')">18></span>
+  
+    </span>
+   </div>
+   <div class="col-md-4 mb-3">
+    <label for="place" ><b>Place</b></label>
+   
+  
+    <input type="text" class="form-control" [ngClass]="{'is-valid': registerForm.get('place')?.valid, 'is-invalid': registerForm.get('place')?.invalid && registerForm.get('place')?.touched}"  formControlName="place"  ng><span *ngIf="registerForm.get('place')?.invalid && registerForm.get('place')?.touched">
+  
+        <span class="invalid-feedback" *ngIf="registerForm.get('place')?.hasError('required')">place is required</span>
+        <span class="invalid-feedback"  *ngIf="registerForm.get('place')?.hasError('minlength')">Atleast 3 characters</span>
+  
+    </span>
+   </div>
+  
+   
+    <div class="col-md-4 mb-3">
+  <label for="username"><b>username</b></label><br>
+  <input type="text" class="form-control" [ngClass]="{'is-valid': registerForm.get('username')?.valid, 'is-invalid': registerForm.get('username')?.invalid && registerForm.get('username')?.touched}"  formControlName="username">
+  <span *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+
+      <span class="invalid-feedback" *ngIf="registerForm.get('username')?.getError('required')" >Enter userame</span>
+      <span class="invalid-feedback" *ngIf="registerForm.get('username')?.getError('minlength')" >Minimum 8 character Needed</span>
+     
+  </span>
+</div>      
+  <!-- <button type="submit"[disabled]="registerForm.invalid" (click)="onRegister()"  class="registerbtn">Register</button> -->
+
+  <button *ngIf="isEditing" (click)="updateEmployee()"  [disabled]="registerForm.invalid" class="registerbtn">Update</button>
+  <button *ngIf="!isEditing" (click)="onRegister()"  [disabled]="registerForm.invalid" class="registerbtn">Register</button>
+
+
+</div>
+  </form>
+
+
+  <div class="container signin">
+  </div>
