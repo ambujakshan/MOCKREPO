@@ -41,5 +41,9 @@ this.router.navigate((['/admin/add']))
 assignReviewers(username: string) {
   this.router.navigate(['/admin/assignreviewers'], { queryParams: {"username": username } });
 }
+logout() {
+  localStorage.clear();
+  this.router.navigate(['/login']);
+}
 
 }

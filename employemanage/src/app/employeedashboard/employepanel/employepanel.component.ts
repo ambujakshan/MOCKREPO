@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../employee.service';
 import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employepanel',
@@ -11,7 +12,7 @@ export class EmployepanelComponent implements OnInit {
   reviews: any[] = [];
   username: string='';
 
-  constructor(private reviewService: EmployeeService, private authService: AuthService) {}
+  constructor(private reviewService: EmployeeService, private authService: AuthService,private router:Router) {}
 
   ngOnInit(): void {
     // Get the logged-in employee's username from AuthService
@@ -27,6 +28,7 @@ export class EmployepanelComponent implements OnInit {
       }
     );
   }
+  
   submitReview(review: any): void {
     if (review.tempReview.trim()) {
       const updatedReview = {
@@ -48,5 +50,10 @@ export class EmployepanelComponent implements OnInit {
     } else {
       alert('Please write a review before submitting.');
     }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
