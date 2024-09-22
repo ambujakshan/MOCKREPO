@@ -94,8 +94,8 @@ let employees=[
       const userCollection = db.collection('user'); // Assuming user collection exists
 
       // Delete the employee from the collection by name
-      const result = await collection.deleteOne({ username: name.trim().toLowerCase() });
-      const result1 = await userCollection.deleteOne({ username: name.trim().toLowerCase() });
+      const result = await collection.deleteOne({ username: name });
+       await userCollection.deleteOne({ username: name });
 
       if (result.deletedCount > 0) {
         res.status(200).json({ message: "Deleted" });
