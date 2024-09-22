@@ -63,7 +63,7 @@ let employees=[
         
         console.log("Inserted student:", result);
         const user = {
-          username: student.username.trim().toLowerCase(),
+          username: student.username.trim(),
           password: student.username.trim().toLowerCase(), // Use the username as the password
           role: 'employee' // Fixed role
         };

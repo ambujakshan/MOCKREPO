@@ -50,4 +50,10 @@ returnuserLIst(){
   });
 
 }
+
+getLoggedInUsername(): string  {
+  // Retrieve user role from session/local storage after login
+  const user = JSON.parse(localStorage.getItem('user') || '');
+  return user?.username || '';
+}
 }

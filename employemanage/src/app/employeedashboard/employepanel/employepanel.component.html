@@ -1,1 +1,42 @@
-<p>employepanel works!</p>
+<div class="container mt-4">
+    <h3>Assigned Reviews</h3>
+    
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Reviewer</th>
+          <th>Status</th>
+          <th>Review</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of reviews">
+          <td>{{ review.reviewerName }}</td>
+          <td>
+            <!-- Display "Completed" if the review is submitted, otherwise show "Pending" -->
+            <span *ngIf="review.review; else pendingStatus" class="badge bg-success">Completed</span>
+            <ng-template #pendingStatus>
+              <span class="badge bg-warning">Pending</span>
+            </ng-template>
+          </td>
+          <td>
+            <!-- If review is completed, show the submitted review; otherwise, allow user to write a review -->
+            <ng-container *ngIf="review.review; else writeReview">
+              {{ review.review }}
+            </ng-container>
+            <ng-template #writeReview>
+              <textarea [(ngModel)]="review.tempReview" rows="3" class="form-control" placeholder="Write your review..."></textarea>
+            </ng-template>
+          </td>
+          <td>
+            <!-- If review is not submitted, show a button to submit the review -->
+            <ng-container *ngIf="!review.review">
+              <button class="btn btn-primary" (click)="submitReview(review)">Submit Review</button>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

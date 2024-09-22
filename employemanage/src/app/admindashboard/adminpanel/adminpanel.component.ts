@@ -38,5 +38,8 @@ this.employeelistService.getEmployeeList().subscribe(result=>{
 addNewEmployee(){
 this.router.navigate((['/admin/add']))
 }
+assignReviewers(username: string) {
+  this.router.navigate(['/admin/assignreviewers'], { queryParams: {"username": username } });
+}
 
 }

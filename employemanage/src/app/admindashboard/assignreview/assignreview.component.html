@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <!-- Form inside a card -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Assign Reviewers</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="assignReviewersForm" (ngSubmit)="assignReviewers()">
+        
+        <!-- Employee Field -->
+        <div class="form-row mb-3">
+          <div class="col-md-12">
+            <label for="username" class="form-label">Employee</label>
+            <input type="text" id="username" class="form-control form-control-lg" formControlName="username" placeholder="Enter Employee Name" required>
+          </div>
+        </div>
+
+        <!-- Select Reviewers Field -->
+        <div class="form-row mb-3">
+          <div class="col-md-12">
+            <label for="reviewers" class="form-label">Select Reviewers</label>
+            <ng-select [items]="employees"
+                       bindLabel="username"
+                       bindValue="username"
+                       formControlName="reviewers"
+                       multiple="true"
+                       placeholder="Select reviewers"
+                       [searchable]="true"
+                       [clearable]="true"
+                       class="custom-ng-select">
+              <ng-template ng-label-tmp let-item="item">
+                <i class="fas fa-user"></i> {{ item.username }}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item">
+                <i class="fas fa-user-circle"></i> {{ item.username }}
+              </ng-template>
+            </ng-select>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-row">
+          <div class="col-md-12 text-right">
+            <button type="submit" class="btn btn-success btn-lg">Assign Reviewers</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

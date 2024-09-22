@@ -20,9 +20,9 @@
         <td>{{employee.age}}</td>
         <td>{{employee.place}}</td>
         <td>{{employee.active}}</td>
-        <td><button class="btn btn-primary">Assign feedback</button></td>
+        <td><button (click)="assignReviewers(employee.username)" class="btn btn-primary">Assign feedback</button></td>
 
-        <td><button class="btn btn-primary">view feedback</button></td>
+        <td><button  class="btn btn-primary">view feedback</button></td>
 
         <td><button (click)="editEmployee(employee)" class="btn btn-primary">Edit</button></td>
         <td><button (click)="deleteEmployee(employee.username)" class="btn btn-danger">Delete</button></td>

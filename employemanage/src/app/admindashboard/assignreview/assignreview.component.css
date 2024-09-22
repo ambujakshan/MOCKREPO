@@ -1,0 +1,18 @@
+.custom-ng-select .ng-select-container {
+    border-radius: 0.25rem; /* Same as Bootstrap form elements */
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+}
+
+.custom-ng-select .ng-select-container .ng-value {
+    background-color: #e9ecef; /* Light grey for selected items */
+    border-radius: 0.2rem;
+}
+
+.custom-ng-select .ng-dropdown-panel .ng-option {
+    padding: 0.5rem;
+}
+
+.custom-ng-select .ng-dropdown-panel .ng-option:hover {
+    background-color: #f8f9fa; /* Light hover effect */
+}
